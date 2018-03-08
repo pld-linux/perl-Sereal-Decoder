@@ -8,13 +8,13 @@
 Summary:	Sereal::Decoder - Fast, compact, powerful binary deserialization
 Summary(pl.UTF-8):	Sereal::Decoder - szybka, zwarta, potężna deserializacja binarna
 Name:		perl-Sereal-Decoder
-Version:	3.015
+Version:	4.005
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/Y/YV/YVES/Sereal-Decoder-%{version}.tar.gz
-# Source0-md5:	de91784e359e25aee07f87a8b9b2f90b
+# Source0-md5:	68a7a2220cc9d05585100e4eace9da9f
 URL:		http://search.cpan.org/dist/Sereal-Decoder/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -62,7 +62,7 @@ repozytorium github <https://github.com/Sereal/Sereal>.
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-%{__make} \
+%{__make} -j1 \
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
