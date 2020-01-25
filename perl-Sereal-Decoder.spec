@@ -4,7 +4,6 @@
 
 %define		pdir	Sereal
 %define		pnam	Decoder
-%include	/usr/lib/rpm/macros.perl
 Summary:	Sereal::Decoder - Fast, compact, powerful binary deserialization
 Summary(pl.UTF-8):	Sereal::Decoder - szybka, zwarta, potężna deserializacja binarna
 Name:		perl-Sereal-Decoder
