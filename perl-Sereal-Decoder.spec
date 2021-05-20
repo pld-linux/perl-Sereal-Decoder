@@ -7,18 +7,25 @@
 Summary:	Sereal::Decoder - Fast, compact, powerful binary deserialization
 Summary(pl.UTF-8):	Sereal::Decoder - szybka, zwarta, potężna deserializacja binarna
 Name:		perl-Sereal-Decoder
-Version:	4.005
-Release:	4
+Version:	4.018
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/Y/YV/YVES/Sereal-Decoder-%{version}.tar.gz
-# Source0-md5:	68a7a2220cc9d05585100e4eace9da9f
-URL:		http://search.cpan.org/dist/Sereal-Decoder/
+# Source0-md5:	1619ac6237f12dae898be1ee25708933
+URL:		https://metacpan.org/release/Sereal-Decoder
+BuildRequires:	perl-ExtUtils-MakeMaker >= 7.0
+BuildRequires:	perl-ExtUtils-ParseXS >= 2.21
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
+BuildRequires:	perl-Scalar-List-Utils
+BuildRequires:	perl-Test-Deep
+BuildRequires:	perl-Test-Differences
 BuildRequires:	perl-Test-LongString
+BuildRequires:	perl-Test-Simple >= 0.88
 BuildRequires:	perl-Test-Warn
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
