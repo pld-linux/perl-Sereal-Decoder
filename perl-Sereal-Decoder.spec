@@ -20,6 +20,7 @@ BuildRequires:	perl-ExtUtils-ParseXS >= 2.21
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
+BuildRequires:	zstd-devel
 %if %{with tests}
 BuildRequires:	perl-Scalar-List-Utils
 BuildRequires:	perl-Test-Deep
