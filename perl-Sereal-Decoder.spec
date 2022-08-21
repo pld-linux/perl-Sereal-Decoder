@@ -8,7 +8,7 @@ Summary:	Sereal::Decoder - Fast, compact, powerful binary deserialization
 Summary(pl.UTF-8):	Sereal::Decoder - szybka, zwarta, potężna deserializacja binarna
 Name:		perl-Sereal-Decoder
 Version:	4.023
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
