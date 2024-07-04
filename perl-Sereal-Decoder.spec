@@ -7,14 +7,18 @@
 Summary:	Sereal::Decoder - Fast, compact, powerful binary deserialization
 Summary(pl.UTF-8):	Sereal::Decoder - szybka, zwarta, potężna deserializacja binarna
 Name:		perl-Sereal-Decoder
-Version:	4.025
-Release:	3
+Version:	5.004
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-authors/id/Y/YV/YVES/Sereal-Decoder-%{version}.tar.gz
-# Source0-md5:	c18bb9ddf44d44d47b1baa0aefa344a3
-URL:		https://metacpan.org/release/Sereal-Decoder
+# Source0-md5:	87f2a3bb8e04609670b496a7bf952ff6
+Patch0:		Sereal-Decoder-miniz.patch
+URL:		https://metacpan.org/dist/Sereal-Decoder
+BuildRequires:	csnappy-devel
+BuildRequires:	miniz-devel
+BuildRequires:	perl-Devel-CheckLib >= 1.16
 BuildRequires:	perl-ExtUtils-MakeMaker >= 7.0
 BuildRequires:	perl-ExtUtils-ParseXS >= 2.21
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -65,8 +69,16 @@ repozytorium github <https://github.com/Sereal/Sereal>.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0 -p1
 
 %build
+%ifarch %{ix86} %{x8664} x32
+export USE_UNALIGNED=yes
+%else
+export USE_UNALIGNED=no
+%endif
+export NO_ASM=no
+
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make} -j1 \
@@ -77,6 +89,7 @@ repozytorium github <https://github.com/Sereal/Sereal>.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
