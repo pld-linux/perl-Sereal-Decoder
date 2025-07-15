@@ -69,7 +69,7 @@ repozytorium github <https://github.com/Sereal/Sereal>.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %ifarch %{ix86} %{x8664} x32
